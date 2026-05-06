@@ -1,0 +1,52 @@
+{
+  "name": "snippet-formatter",
+  "displayName": "Snippet Formatter",
+  "description": "Escapes and wraps selected lines ready for use in a VS Code snippet body array",
+  "version": "0.1.9",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "dependencies": {
+    "jsonc-parser": "^3.3.1"
+  },
+  "activationEvents": [
+    "onCommand:snippetFormatter.formatForSnippet",
+    "onCommand:snippetFormatter.addAsSnippet"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "snippetFormatter.formatForSnippet",
+        "title": "Snippet Formatter: Format Selection"
+      },
+      {
+        "command": "snippetFormatter.addAsSnippet",
+        "title": "Snippet Formatter: Add as Snippet"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "snippetFormatter.formatForSnippet",
+          "group": "snippetFormatter@1"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "snippetFormatter.addAsSnippet",
+          "group": "snippetFormatter@2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "snippetFormatter.formatForSnippet",
+        "key": "ctrl+shift+alt+q",
+        "when": "editorHasSelection"
+      }
+    ]
+  }
+}
