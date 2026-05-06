@@ -46,5 +46,3 @@ npm install -g @vscode/vsce
 cd snippet-formatter
 vsce package --allow-missing-publisher
 ```
-
-This produces `snippet-formatter-0.0.1.vsix`.
